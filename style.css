@@ -1,0 +1,83 @@
+#hielo-banner {
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+#hielo-banner:after {
+    content: url('./assets/bg-03.jpg');
+    position: absolute;
+    width: 100%;
+    height: 125px;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+#hielo-banner .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+
+}
+
+#hielo-banner .row::after {
+    content: url('./assets/bg-02.png');
+    position: absolute;
+    z-index: 0;
+    bottom: -2rem;
+    object-fit: contain;
+    width: 100%;
+}
+
+#hielo-banner .row .col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+#hielo-banner .row .col img {
+    width: 280px;
+
+}
+
+#hielo-banner .row .col h3 {
+    font-size: 2rem;
+    font-weight: 800 !important;
+}
+
+@media screen and (max-width: 767px) {
+    #hielo-banner .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #hielo-banner .row .col img {
+        max-width: 180px;
+    }
+
+    #hielo-banner .row::before {
+        content: url('./assets/bg-02.png');
+        position: absolute;
+        left: -40%;
+        top: 0;
+        z-index: 1;
+        transform: rotate(90deg);
+        width: 145%;
+        height: 100%;
+    }
+
+    #hielo-banner .row::after {
+        transform: rotate(-90deg);
+        height: 100%;
+        bottom: auto;
+        top: 0;
+        width: 145%;
+    }
+
+    #hielo-banner .row .col {
+        flex-direction: row-reverse;
+    }
+}
